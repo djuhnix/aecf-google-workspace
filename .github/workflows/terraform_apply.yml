@@ -12,6 +12,16 @@ permissions:
 jobs:
   apply:
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
+      TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.OSC_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.OSC_SECRET_KEY_ID }}
+      OUTSCALE_ACCESSKEYID: ${{ secrets.OSC_ACCESS_KEY_ID }}
+      OUTSCALE_SECRETKEYID: ${{ secrets.OSC_SECRET_KEY_ID }}
+      AWS_EC2_METADATA_DISABLED: true
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
     steps:
       - name: Checkout Code
         uses: actions/checkout@v7.0.1
@@ -43,15 +53,10 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: v1.15.5
 
       - name: Terraform Init
-        env:
-          TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
-          TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
-          OUTSCALE_ACCESSKEYID: ${{ secrets.OSC_ACCESS_KEY_ID }}
-          OUTSCALE_SECRETKEYID: ${{ secrets.OSC_SECRET_KEY_ID }}
-          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
-          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
         run: terraform init
 
       - name: Terraform Apply
@@ -61,13 +66,7 @@ jobs:
           TF_VAR_customer_id: ${{ secrets.GWS_CUSTOMER_ID }}
           TF_VAR_target_service_account: ${{ secrets.GWS_TARGET_SERVICE_ACCOUNT }}
           TF_VAR_default_user_password: ${{ secrets.GWS_DEFAULT_USER_PASSWORD }}
-          TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
-          TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
-          OUTSCALE_ACCESSKEYID: ${{ secrets.OSC_ACCESS_KEY_ID }}
-          OUTSCALE_SECRETKEYID: ${{ secrets.OSC_SECRET_KEY_ID }}
           TF_VAR_enable_user_creation: true
-          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
-          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
 
       - name: Remove decrypted files
         run: |
