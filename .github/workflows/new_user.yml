@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: write
-  id-token: write
+  pull-requests: write
 
 jobs:
   provision:
@@ -21,14 +21,6 @@ jobs:
         run: |
           sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
           sudo chmod +x /usr/bin/yq
-
-      - name: Authenticate to GCP
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          # These should be stored as GitHub Secrets
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - name: Install SOPS
         run: |
@@ -98,29 +90,12 @@ jobs:
         run: |
           rm -f config/users.yaml config/groups.yaml
 
-      - name: Commit and Push Changes
-        env:
-          COMMIT_ID: ${{ github.event.client_payload.commit_id }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add config/users.yaml config/groups.yaml
-          git commit -m "chore: automated - provisioning new user - $COMMIT_ID"
-          git push
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        env:
-          # Pass necessary variables as TF_VAR_
-          TF_VAR_domain: ${{ secrets.GWS_DOMAIN }}
-          TF_VAR_customer_id: ${{ secrets.GWS_CUSTOMER_ID }}
-          TF_VAR_target_service_account: ${{ secrets.GWS_TARGET_SERVICE_ACCOUNT }}
-          TF_VAR_default_user_password: ${{ secrets.GWS_DEFAULT_USER_PASSWORD }}
-          TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
-          TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: automated - provisioning new user - ${{ github.event.client_payload.commit_id }}"
+          title: "Provision New User: ${{ github.event.client_payload.email }}"
+          body: "Automated provisioning request for ${{ github.event.client_payload.first_name }} ${{ github.event.client_payload.last_name }}."
+          branch: "provision-user-${{ github.event.client_payload.commit_id }}"
+          base: main

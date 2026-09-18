@@ -14,7 +14,7 @@
 #     command = <<EOT
 #       DRIVE_NAME="${each.value.name} - Shared Drive"
 #       MANAGER_EMAIL="${coalesce(each.value.email_prefix, reverse(split("/", each.key))[0])}@${var.domain}"
-      
+
 #       chmod +x ./scripts/manage_shared_drive.sh
 #       ./scripts/manage_shared_drive.sh "$DRIVE_NAME" "$MANAGER_EMAIL"
 #     EOT

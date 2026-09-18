@@ -11,7 +11,7 @@ resource "googleworkspace_group" "group" {
 # Group Settings (Permissions, Posting policies, Visibility)
 resource "googleworkspace_group_settings" "group_settings" {
   for_each = {
-    for email, g in local.groups : email => g 
+    for email, g in local.groups : email => g
     if var.enable_group_creation && length(keys(g.settings)) >= 0
   }
 

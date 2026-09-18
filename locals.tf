@@ -8,7 +8,7 @@ locals {
   # --- Organizational Units ---
   # Map keyed by full path (e.g., "/Engineering" or "/Engineering/DevOps")
   org_units_list = try(local.raw_org_units.org_units, [])
-  
+
   root_org_units = {
     for ou in local.org_units_list :
     ou.path => {
