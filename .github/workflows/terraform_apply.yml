@@ -45,6 +45,9 @@ jobs:
         uses: hashicorp/setup-terraform@v4.0.1
 
       - name: Terraform Init
+        env:
+          TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
+          TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
         run: terraform init
 
       - name: Terraform Apply
@@ -56,6 +59,7 @@ jobs:
           TF_VAR_default_user_password: ${{ secrets.GWS_DEFAULT_USER_PASSWORD }}
           TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
           TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
+          TF_VAR_enable_user_creation: true
 
       - name: Remove decrypted files
         run: |

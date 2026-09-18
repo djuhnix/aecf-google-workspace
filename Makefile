@@ -1,5 +1,5 @@
 
-.PHONY: lint plan apply init-gcloud init-gam gshell gam-build gam-shell install-hooks
+.PHONY: lint plan apply init-gcloud init-gam gshell gam-build gam-shell install-hooks list-wip wip-info list-sas
 
 # Terraform targets
 
@@ -37,7 +37,7 @@ init-gam:
 
 gshell:
 	@echo "Starting Google Shell..."
-	docker run -it --rm -v ~/.config/gcloud:/root/.config/gcloud google/cloud-sdk:slim bash
+	docker run -it --platform linux/amd64 --rm -v ~/.config/gcloud:/root/.config/gcloud google/cloud-sdk:slim bash
 	@echo "Google Shell exited."
 
 gam-build:
@@ -49,3 +49,16 @@ gam-shell:
 	@echo "Starting GAM Shell..."
 	docker run -it --rm -v "${PWD}/gam/.gam:/root/.gam" gam7:latest bash
 	@echo "GAM Shell exited."
+
+# Workload Identity Federation
+list-wip:
+	@echo "Listing Workload Identity Pools..."
+	docker run --platform linux/amd64 --rm -v ~/.config/gcloud:/root/.config/gcloud google/cloud-sdk:slim gcloud iam workload-identity-pools list --location=global
+
+wip-info:
+	@echo "Fetching Workload Identity Pool Provider info..."
+	docker run --platform linux/amd64 --rm -v ~/.config/gcloud:/root/.config/gcloud google/cloud-sdk:slim gcloud iam workload-identity-pools providers list --location=global --workload-identity-pool $(WIP_POOL)"
+
+list-sas:
+	@echo "Listing Service Accounts..."
+	docker run --platform linux/amd64 --rm -v ~/.config/gcloud:/root/.config/gcloud google/cloud-sdk:slim gcloud iam service-accounts list
