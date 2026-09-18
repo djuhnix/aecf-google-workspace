@@ -1,13 +1,13 @@
 
-.PHONY: lint plan apply init-gcloud init-gam gshell gam-build gam-shell
+.PHONY: lint plan apply init-gcloud init-gam gshell gam-build gam-shell install-hooks
 
 # Terraform targets
 
-lint:
+lint: fmt
 	terraform fmt -check
 	terraform validate
 
-fmt: lint
+fmt:
 	terraform fmt
 
 plan:
@@ -15,6 +15,12 @@ plan:
 
 apply: plan
 	terraform apply tfplan
+
+install-hooks:
+	@echo "Installing pre-commit hooks..."
+	@printf '#!/bin/sh\nmake lint\n' > .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-commit
+	@echo "Pre-commit hook installed successfully."
 
 clean: lint
 	rm -f tfplan
