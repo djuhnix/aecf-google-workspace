@@ -48,8 +48,9 @@ jobs:
         env:
           SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
         run: |
-          sops decrypt config/users.enc.yaml > config/users.yaml
-          sops decrypt config/groups.enc.yaml > config/groups.yaml
+          for f in config/*.enc.yaml; do
+            sops -d "$f" > "${f%.enc.yaml}.yaml"
+          done
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v4.0.1
@@ -70,4 +71,6 @@ jobs:
 
       - name: Remove decrypted files
         run: |
-          rm -f config/users.yaml config/groups.yaml
+          for f in config/*.enc.yaml; do
+            rm -f "${f%.enc.yaml}.yaml"
+          done
