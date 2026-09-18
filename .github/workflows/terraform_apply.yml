@@ -48,6 +48,8 @@ jobs:
         env:
           TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
           TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}
+          OUTSCALE_ACCESSKEYID: ${{ secrets.OSC_ACCESS_KEY_ID }}
+          OUTSCALE_SECRETKEYID: ${{ secrets.OSC_SECRET_KEY_ID }}
         run: terraform init
 
       - name: Terraform Apply
