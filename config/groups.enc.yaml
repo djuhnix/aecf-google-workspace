@@ -1,0 +1,48 @@
+# Google Workspace Groups Configuration
+# See https://developers.google.com/admin-sdk/groups-settings/v1/reference/groups
+# See https://registry.terraform.io/providers/hashicorp/googleworkspace/latest/docs/resources/group_settings
+groups:
+    - email: ENC[AES256_GCM,data:XicSlD4ej7HiXWu+KA==,iv:xmTEogbt4aVGhwebKvddVYcnpqFUqOrczdBIwlHWQ7c=,tag:0xOMaEMYS+UiKcgj3Zn9Hg==,type:str]
+      name: ENC[AES256_GCM,data:ylBZKUDIBZP6Mg==,iv:9LmqQpAus2IxtQtMKgo9g7lIuDkr1moQET7D+GWzeck=,tag:gWdoWsVO95jg7zl0XPa2kg==,type:str]
+      description: Pôle Médiatique de l'AECF
+      aliases: []
+      settings:
+        allow_external_members: true
+      members:
+        - email: ENC[AES256_GCM,data:9HjnJELfQP3N6dgEE7FEw4WjALE=,iv:ZZBNLZ02CPDM7P+fCK0hRPST+vdSa5fN6t4O32tJ9V4=,tag:i9pR4dtsA52jaHSPnoSUqQ==,type:str]
+          role: OWNER
+          type: USER
+        - email: ENC[AES256_GCM,data:WwS60Fq4vX/XLhr9jXNXmo03Xg==,iv:HXMIqA1Sq6KWHuHLl9cXTpN7bUJiarRGBX6bpXuRuyk=,tag:b8NApwFbAypZRPktZMSeJg==,type:str]
+          role: MEMBER
+          type: USER
+    - email: ENC[AES256_GCM,data:PJJe1WdmncLfEdrPL0ahVzs=,iv:B+FgWp+XPZ2kmAW1qsEi8ah3aIfR6+2zk3UoIl1opng=,tag:rRoFGhn1vlwLwTX2aZMOcw==,type:str]
+      name: ENC[AES256_GCM,data:nNcMlePxxk8hvwPg93cfsWc=,iv:5OLuVwrpmq35Y7Nhhi3c9DL1HnNqpzXnR24+q2aXxjE=,tag:u/JZXeDQt1lKQozO342Mvw==,type:str]
+      description: Gestion des Elections de l'AECF
+      aliases: []
+      settings:
+        allow_external_members: true
+      members:
+        - email: ENC[AES256_GCM,data:evfomTMJhk9k8gZIOtsIGUyZ7d0=,iv:TG+5tLJWzy9/n0Xm+8WugmiQvofZ8/4EUBUS7keqgLs=,tag:ySLp43O8kaMPDT14saOHnw==,type:str]
+          role: OWNER
+          type: USER
+        - email: ENC[AES256_GCM,data:ZlbTBhvpi5DG7WpYTBSxbkEqyaiPHgpD4N8djy37,iv:ebf14WNz1VZlk+PJNTD6BMAJAlL1Pcg6E0F2QHvttmQ=,tag:xY31Ttdc2+CswC0BhX753g==,type:str]
+          role: MEMBER
+          type: USER
+        - email: ENC[AES256_GCM,data:AuGVKENx6WKsSGha/c32dccxxxaw+R4=,iv:h6deG1xgIZy2dL/UD28MpZg2Hm1WpKu9mH1UwOTHVr0=,tag:P11S7hNVYdK2vTFUNS+ykg==,type:str]
+          role: MEMBER
+          type: USER
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAyT2F5dE1IVVhjWmhBSnVX
+            RXNPZnhoTThsR3ZmcGczNWsxNmF4NW1XQTA0CjBGN0FIZW9XYUdKNHgrU1RwVXZT
+            ZmZ2NDJOZkJsS3NtSzV3UzZlREZhQVEKLS0tICt0WW5TYUtvdFBpb1BDd1FkWWc1
+            Q25FRnlXYnhOWFNtWW9FY29BbUYxV1UKkvRb86bwB600kkwRR6M24I3coY+sq9jZ
+            quDL/x9pxa7HUZliZia89YWehGo27E95HqYfSgTD1d475yGyycYeCw==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age126x52f8ph4afdssh4vctq7pz87ashm7luk0raxfzy9e3tfvljqgqhh5z5k
+    encrypted_regex: ^(email|email_prefix|name|initial_password|recovery_email|recovery_phone|first_name|last_name)$
+    lastmodified: "2026-09-18T13:03:12Z"
+    mac: ENC[AES256_GCM,data:9wP1w8RVSOPcUEgziyYbc1ckAoUlKErjNywr6EmdWps2d9Y8sDjIyiabUVIXQbuuvcEUyum0F2jw2xBr2cRPEW0VRKTN81AI9npbvu1bPtursAN4rkTheZoZfHAfiHiKnol6fum9HLaWFSfCyHwORcPFtK4YkbeLaAq55qHVeQo=,iv:F1BXZhmT0CX1BgSI3mmcoNT5xPQMAdyKZPWRQ990/nY=,tag:+l5LYiXsCrq7Gu9lntg3nQ==,type:str]
+    version: 3.13.3

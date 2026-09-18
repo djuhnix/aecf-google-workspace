@@ -1,0 +1,61 @@
+# Google Workspace User Provisioning Data
+users:
+    - first_name: ENC[AES256_GCM,data:W//Sx5m/ysA=,iv:p1jgkm0/Op4OsKmAnTdUQ8w0w+IE6Pr8zY23vWH7yrY=,tag:gb4nfCIt49Df7ky3fc+NcQ==,type:str]
+      last_name: ENC[AES256_GCM,data:Q82v3JM=,iv:tjDJz7N1LlWt620ffJ2qh7qUEnM0UplH2Llm/SyOZqw=,tag:b4bM8z5aCMtQJZX7iUs3fQ==,type:str]
+      email: ENC[AES256_GCM,data:KOfmx3I+S2jassQhq6cKDMmIE11L4A==,iv:U2gAj03V5HwOsA8nKzwWaQ72bsIZoreumGPoU6IcdWo=,tag:Sd4aDPd98unKyuKm2E+vDA==,type:str]
+      org_unit_path: /
+      suspended: false
+      change_password_at_next_login: false
+      init_password: false
+      recovery_email: null
+    - first_name: ENC[AES256_GCM,data:XdC/3Kvy8A==,iv:Abv4Tx4BE1lNBXQejDcHp/lOEs7t3wVpV+WcemtOp/k=,tag:TBZ0Otgs9g6sf641yrcKqw==,type:str]
+      last_name: ENC[AES256_GCM,data:ETbpoA==,iv:WgHx8DzMLNsDB8U7xUylbYMaXiw3RF8AqlgoCgtn2/U=,tag:4NYd2asYkjOIdpEi3rL4VQ==,type:str]
+      email: ENC[AES256_GCM,data:JDdFMtl5mLspQQZoLnW9buQWprI=,iv:H4/p0Dpaa7QanVDbrre6E5u8qp0FFVw2683LIDYePYY=,tag:blstxg+aciqBLHquuBewfA==,type:str]
+      org_unit_path: /
+      suspended: false
+      change_password_at_next_login: false
+      init_password: false
+      recovery_email: ENC[AES256_GCM,data:UYrCKGKPNdIXVzt5ptMViWc=,iv:uHjhxB1a/K0vcXSJ3X0W/4q+PIG0P1pM42TQQJ1rmmY=,tag:MhxZo7xaaAK2Hd9Xv6MZGA==,type:str]
+      groups:
+        - email: ENC[AES256_GCM,data:EE6MoLuDjb9rXw==,iv:sNouvkreDTQRDtPRZwUPix3XlUAB3dEjvhOxQP1K4YI=,tag:kFOODyqweoRf06JddbC+rw==,type:str]
+          role: OWNER
+    - first_name: ENC[AES256_GCM,data:8azFF0lUT1NoK6JAkIgZjafhaA==,iv:9GyljkoRufmO+xaP8OIWVBayFVOi8na8gxdb1MS/8vI=,tag:LaBC2emjDgyruHeYgRNKSA==,type:str]
+      last_name: ENC[AES256_GCM,data:RI8saw==,iv:Ng/RVw3dCVoSkY1ZTsBqL6rAOpTcDTeXaT8ykkggofc=,tag:NiLCVhkUkEk/wedOetfI5Q==,type:str]
+      email: ENC[AES256_GCM,data:DSmxAllSjoLXDzMsbLqObPHFvUU=,iv:iG3IYF5trWChkxmv36xnOJdcan2RGpuGrN8x7UpYp4k=,tag:6cBpxoBF4zxU5DKmaxG0Jw==,type:str]
+      org_unit_path: /
+      suspended: false
+      change_password_at_next_login: false
+      init_password: false
+      recovery_email: ENC[AES256_GCM,data:ICkgE29Q1C9xo/FnSQohyJcX,iv:bPqmxYESxBktItyyiHivr6ATc3oAet/Kod72dvnGzJI=,tag:EUyaBk21SwdQU3sPliUkOA==,type:str]
+    - first_name: ENC[AES256_GCM,data:4DTrBw8J3w==,iv:ZjvYJTRfhL6w2r55GLvPbvIL/Y0FE3MUdV2dsZzMmvI=,tag:eiDdExrNkv7VY162+kULQw==,type:str]
+      last_name: ENC[AES256_GCM,data:nhY8fw==,iv:bebktz+OZf0VUn4upxHToSxKQw9zNBxHfZRWyZPiHGw=,tag:O8SoP6+0S98exKrlDGEugA==,type:str]
+      email: ENC[AES256_GCM,data:qGugjRsflWWm6hJQAZRc,iv:kmJJy++QbMkjAtzEfzl/XGPa9AuGS6BGCe9+BekRbhI=,tag:Bvhe4Gj9XE0TbF7eXYqLoA==,type:str]
+      org_unit_path: /
+      suspended: false
+      change_password_at_next_login: false
+      init_password: false
+      recovery_email: ENC[AES256_GCM,data:RCWo4L8AoNoIWkXTM/MjJRblmQ==,iv:h9QzQhLW78vb2Mj+yZ7NocLNdEqEiByeJ6hkV9LxoAs=,tag:e9atIC4aIQte7MNVw9f1OQ==,type:str]
+      recovery_phone: ENC[AES256_GCM,data:M/MN5jDP6Fznt3/Z,iv:sbQ0EIvWbjSIbVdpi/l402lJqUn46QPP/Mma9FtlCSY=,tag:AQor9yJIkiMLdz5X6SUepg==,type:str]
+    - first_name: ENC[AES256_GCM,data:5pq5xA==,iv:umr8GgQvObEmsNU+nDL+Lx7bctSyuFWvl6fjXav2AQo=,tag:idy7m7LxPHMLuupedJcPGQ==,type:str]
+      last_name: ENC[AES256_GCM,data:QqM0lQ==,iv:jY2JI90j2q/zZCYnMOA4k6BKnYQ6+7dcD7lBMsjtfCw=,tag:nAfLtC3dDQHfrZHN/GO7LA==,type:str]
+      email: ENC[AES256_GCM,data:PXsJXTuBm4g/FEa2,iv:CgMsMWaqgCiH5Ymc/F/qMSr6KJZCEnVDrUkyTnCn/jQ=,tag:yhTutHdPxk0bfJgLLyrTSw==,type:str]
+      org_unit_path: /
+      suspended: false
+      change_password_at_next_login: false
+      init_password: false
+      recovery_email: null
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBSek9rSDk3SHIvWDBQZzZy
+            NjRrRFV1QkJEK2NuY3FrQnNtamJKRTdmRzB3Ci9sNGVrY0F6QVlZSWRMTzltRVZ3
+            bHozYXp0WVQ3bzdSMk04aVBQTGpqRDgKLS0tIDlwdEtpQzZxdXI1QjVUOXY5SlhF
+            S3lmQVAvWm8rK2xCUk9lMzVPcklUUkkKtenTDCbGG4f9tKk+kPlk/WGRoCD6vgea
+            SjDbYHW4vn6FUYm+tkU3l9Wjj72VZqSuoIBN08541k4P74Cij6glQA==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age126x52f8ph4afdssh4vctq7pz87ashm7luk0raxfzy9e3tfvljqgqhh5z5k
+    encrypted_regex: ^(email|email_prefix|name|initial_password|recovery_email|recovery_phone|first_name|last_name)$
+    lastmodified: "2026-09-18T13:02:47Z"
+    mac: ENC[AES256_GCM,data:ose9zJtxz7HsBy4d16dnTT/61ObCFgPeNY3FjqUtezI4hDBwYLbzGTdPt4t4ywlbC6K7I0Zj5vOIHEiN5jIoXTAVNMRh4DKPPqPPnbsFj5BfjtY1VAGfXqREAJ4ZfVG7/cH2egMnrZGhrmDtmk2lwz6JvHr4fnN38lTTXV2W7lA=,iv:wsQzEziKsCFRSoP+OqKIEXw2eBfiZoyGlobMkXICmmo=,tag:FmfvNdEu2hYXwQs+GQHDlg==,type:str]
+    version: 3.13.3

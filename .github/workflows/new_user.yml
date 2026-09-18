@@ -1,0 +1,126 @@
+name: Provision Google Workspace User
+
+on:
+  repository_dispatch:
+    types: [new_user]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install yq
+        run: |
+          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+          sudo chmod +x /usr/bin/yq
+
+      - name: Authenticate to GCP
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          # These should be stored as GitHub Secrets
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Install SOPS
+        run: |
+          curl -sLO https://github.com/getsops/sops/releases/download/v3.12.1/sops-v3.12.1.linux.amd64
+          curl -sLO https://github.com/getsops/sops/releases/download/v3.12.1/sops-v3.12.1.checksums.txt
+          sha256sum --check --ignore-missing sops-v3.12.1.checksums.txt
+          chmod +x sops-v3.12.1.linux.amd64
+          sudo mv sops-v3.12.1.linux.amd64 /usr/local/bin/sops
+          sops --version
+
+      - name: Decrypt secrets
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: |
+          sops decrypt config/users.enc.yaml > config/users.yaml
+          sops decrypt config/groups.enc.yaml > config/groups.yaml
+      
+      - name: Update Configuration Files
+        env:
+          FIRST_NAME: ${{ github.event.client_payload.first_name }}
+          LAST_NAME: ${{ github.event.client_payload.last_name }}
+          EMAIL: ${{ github.event.client_payload.email }}
+          PERSONAL_EMAIL: ${{ github.event.client_payload.personal_email }}
+          OU_PATH: ${{ github.event.client_payload.ou_path }}
+          GROUPS_JSON: ${{ toJson(github.event.client_payload.groups) }}
+        run: |
+          # Process each group from the payload to update groups.yaml
+          echo "$GROUPS_JSON" | jq -c '.[]' | while read -r group; do
+            email=$(echo "$group" | jq -r ".email")
+            role=$(echo "$group" | jq -r ".role")
+            
+            if [ -n "$email" ]; then
+              # Add user to the specific group in groups.yaml
+              yq -i "
+                (.groups[] | select(.email == \"$email\")).members += [{
+                  \"email\": env(EMAIL),
+                  \"role\": \"$role\",
+                  \"type\": \"USER\"
+                }]
+              " config/groups.yaml
+            fi
+          done
+
+          # Add new user to users.yaml including the groups list from payload
+          yq -i "
+            .users += [{
+              \"first_name\": env(FIRST_NAME),
+              \"last_name\": env(LAST_NAME),
+              \"email\": env(EMAIL),
+              \"org_unit_path\": env(OU_PATH),
+              \"suspended\": false,
+              \"change_password_at_next_login\": true,
+              \"recovery_email\": env(PERSONAL_EMAIL),
+              \"groups\": $GROUPS_JSON
+            }]
+          " config/users.yaml
+
+
+      - name: Encrypt secrets
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: |
+          sops encrypt config/users.yaml > config/users.enc.yaml
+          sops encrypt config/groups.yaml > config/groups.enc.yaml
+
+      - name: Remove decrypted files
+        run: |
+          rm -f config/users.yaml config/groups.yaml
+
+      - name: Commit and Push Changes
+        env:
+          COMMIT_ID: ${{ github.event.client_payload.commit_id }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add config/users.yaml config/groups.yaml
+          git commit -m "chore: automated - provisioning new user - $COMMIT_ID"
+          git push
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        env:
+          # Pass necessary variables as TF_VAR_
+          TF_VAR_domain: ${{ secrets.GWS_DOMAIN }}
+          TF_VAR_customer_id: ${{ secrets.GWS_CUSTOMER_ID }}
+          TF_VAR_target_service_account: ${{ secrets.GWS_TARGET_SERVICE_ACCOUNT }}
+          TF_VAR_default_user_password: ${{ secrets.GWS_DEFAULT_USER_PASSWORD }}
+          TF_VAR_osc_access_key_id: ${{ secrets.OSC_ACCESS_KEY_ID }}
+          TF_VAR_osc_secret_key_id: ${{ secrets.OSC_SECRET_KEY_ID }}

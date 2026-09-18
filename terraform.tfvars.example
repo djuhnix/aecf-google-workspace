@@ -1,0 +1,8 @@
+domain                  = "example.com"
+customer_id             = "my_customer"
+target_service_account  = "service-account@project.iam.gserviceaccount.com"
+credentials_file        = "credentials.json"
+config_dir              = "./config"
+enable_user_creation    = true
+enable_group_creation   = true
+enable_ou_creation      = true

@@ -1,0 +1,6 @@
+---
+creation_rules:
+  - path_regex: config/.*\.yaml
+    age: "age126x52f8ph4afdssh4vctq7pz87ashm7luk0raxfzy9e3tfvljqgqhh5z5k"
+    # ONLY encrypt keys that match these regexes
+    encrypted_regex: '^(email|email_prefix|name|initial_password|recovery_email|recovery_phone|first_name|last_name)$'

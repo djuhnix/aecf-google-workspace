@@ -1,0 +1,124 @@
+# AECF - Hiérarchie des Unités Organisationnelles Google Workspace
+org_units:
+    # --- RACINES PARENTES ---
+    - name: ENC[AES256_GCM,data:vtqWSAOvPD8=,iv:Vx0500QrD0EnYIySfQQgR9Ww5dKrERyfEb6A/XcJvWc=,tag:RH1rNN8SqLHpYedIIht7Qg==,type:str]
+      path: /01_poles
+      parent_path: /
+      description: Pôles nationaux, services centraux et équipes opérationnelles d'AECF
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:PRJBZ3Nkqfvwfw==,iv:1I5ILsv2QsFO6CLJxwH20ylP4qO1DOUn/j7kxRGCCs0=,tag:z0vJKQHRLiUSGU9l/ZrLkQ==,type:str]
+      path: /02_entites
+      parent_path: /
+      description: Antennes locales, entités territoriales et bénévoles de terrain
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:Qjf2LCnJ3xH6ZbAZC8aTO8aOPrXYsg==,iv:VVJ32lqFBS87IpeLPXqvd0n5TSDF3q9B5CFmVkfaGME=,tag:Ek3G/ViDoX0FOmISOsQyjg==,type:str]
+      path: /03_services_techniques
+      parent_path: /
+      description: Comptes de services automatisés, bots et intégrations CI/CD
+      block_inheritance: false
+    # --- SOUS-UNITÉS : PÔLES NATIONAUX ---
+    - name: ENC[AES256_GCM,data:5iJEFuVTyVgdLABPGHYZU5R2,iv:ezwK66Jv++DbMZMnLsnpDI0mLZxJbouu1/HuKiOz/k4=,tag:AB1lcMKnFr/fqcmtM7uVSw==,type:str]
+      path: /01_poles/secretariat
+      parent_path: /01_Poles
+      description: Équipe de secrétariat nationale
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:1Blog0AEYNVcvX49EY5Jp+o=,iv:Yy6c6BCdxD7ZbPRQeZIiisflzZW8zyymC+jaWaRj2yM=,tag:/HNHMV+RxPfmYVkyHbd6dQ==,type:str]
+      path: /01_poles/tresorie
+      parent_path: /01_Poles
+      description: Équipe en charge de la gestion financière nationale
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:19nVII6pKrjP0pln,iv:mzD0OJMvUeIz8Y9wVRJMDlmz5v/uaDFi0VQ6lxWFyMw=,tag:GeOaSeTbEGYhix5xXku8UA==,type:str]
+      path: /01_poles/event
+      parent_path: /01_Poles
+      description: Équipe en charge de l'organisation des événements nationaux
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:OFgyAhzCMTgtPwOabdVKcxafPw==,iv:xT/x+1SorYtu5fvLFSyM+KQneL11wo3bTsomhF54bF8=,tag:EjDeBzC32Eg3pqwDd63xNQ==,type:str]
+      path: /01_poles/communication
+      parent_path: /01_Poles
+      description: Équipe communication nationale, presse et réseaux sociaux
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:q/p+t5dswQI+h6QLizGi,iv:zgwoZEUPqn0CCtqpghSp9H0ZFJPjMstkWpaN860TrtE=,tag:T5Ze5Ioq5Uq6ia3LY4WAjg==,type:str]
+      path: /01_poles/juridique
+      parent_path: /01_Poles
+      description: Équipe juridique nationale, gestion des statuts et conformité
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:e1TuTRIHYcAt4AF5rIiHOliPDYfAqMrbvg==,iv:SH6UPDPH4CFHQvJKwvFGqXb890QuYSr2iyNB54bADDk=,tag:8RafHY6bdSkFwFn6/tpBQQ==,type:str]
+      path: /01_poles/rh
+      parent_path: /01_Poles
+      description: Gestion de l'accompagnement à l'insertion professionnelle
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:+U0tO8HbflcqOSny,iv:IYkzq0Lnm3YOPlxRggDJyKu/U0+gNKbWG1xYB8DO9i8=,tag:UsY/zTpKK1oUL2i+bbXVeA==,type:str]
+      path: /01_poles/social
+      parent_path: /01_Poles
+      description: Équipe en charge des actions sociales et du soutien aux membres
+      block_inheritance: false
+    - name: ENC[AES256_GCM,data:Jdouwuzf6BWm4edXTXKXqGCfwqlVzHE=,iv:Bs+pCsi50FOEl22gdoThxbaNQNhggXVQ0JFBLx+7mFc=,tag:mnu8b/Yj1mblZPEcaZfpdg==,type:str]
+      path: /01_poles/accueil_en_france
+      parent_path: /01_Poles
+      description: Équipe en charge de l'accueil et de l'intégration des nouveaux membres en France
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:gI6W93ZMFg==,iv:nmAvyWYFAIINPFzEHoe7KT5QV5NXxAwRBWVP1RWTpOg=,tag:20MhsQOujf/TGcB7qm6hkA==,type:str]
+    - name: ENC[AES256_GCM,data:amv16xaRMaaiElNqW+rrp+ci,iv:jAH8k9Ckil/2ZQegk+x81X2a15PLyD0zuJ/x55iwY24=,tag:NpqQOkaYOLjl/gcCKRBaEw==,type:str]
+      path: /01_poles/it
+      parent_path: /01_Poles
+      description: Équipe en charge des systèmes d'information et de la gestion informatique nationale
+      block_inheritance: false
+      shared_drive: false
+    # --- SOUS-UNITÉS : ENTITÉS LOCALES (EXEMPLES) ---
+    - name: ENC[AES256_GCM,data:Hm7Y/uWEwyvT9zgaGdOjQywI,iv:6fs3QdeQo7C6x+9iKC+lgj2HjrUErTTrTBY3CnGskwk=,tag:X6lBLBgfN+DWvHWikam2BQ==,type:str]
+      path: /02_entites/aecf_ile_de_france
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la région Île-de-France
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:MNR3,iv:GJ5Tbynyr/eacL/PBe9cEn5lcXzVPuOIkwGMAXkI3C4=,tag:ElfC/LWKYWY8DM2uqMvRDg==,type:str]
+    - name: ENC[AES256_GCM,data:lzN8iHJoPQmn2A==,iv:e+lb8Kn/7zkstIUVUtNZ5nFpq4BUB4c+vGLkDJ9yqxo=,tag:8l0zhCgDkUAVUArO+jC5ZA==,type:str]
+      path: /02_entites/aecf_reims
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Reims
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:DkQrxeY=,iv:doTwGNZPF6GZu3KAIpsoK6x+Lo+SgT+01+m39Wf0biM=,tag:HUA8RJgyXGe/zhK/WvSYbg==,type:str]
+    - name: ENC[AES256_GCM,data:gzoG9HxrHuw/,iv:tp90xHWCMQYqjWQZHJ7xueSjHqN6if9k18Jcimi05nE=,tag:QmubKAfYJp39SOV7F2eIBA==,type:str]
+      path: /02_entites/aecf_lyon
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Lyon
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:v3dg3Q==,iv:o8JxpvNKUgfGNpER2ekULbOzJvnSLrdVwXiX1SJXyBo=,tag:D2Kn45KdHl0s1ZcEtSRrrA==,type:str]
+    - name: ENC[AES256_GCM,data:KUGW3qIWtJMHEVKKYmE=,iv:migfoqzCZCS3IUQWj3FwVNuiBPOssLqc01125j05ci8=,tag:BR8haVQnaF/5osXeJpKxsg==,type:str]
+      path: /02_entites/aecf_marseille
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Marseille
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:PcUrPLTNP8Ta,iv:VKQ/W9femk3vHBxsx5nlhgGWvHzGuWYst/2b5eEmNkQ=,tag:8y6Jvia24hGB2DkTdmcndA==,type:str]
+    - name: ENC[AES256_GCM,data:owdps3VHzoZ8An8D2Zb0,iv:WMXw/5Q2cfkSFR26+jRkRrgbM5P6gLKG/j/MclW6gr4=,tag:NplZVaqCNEMsTL1OWVCM0g==,type:str]
+      path: /02_entites/aecf_strasbourg
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Strasbourg
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:TgTtc7b3aKMIUQ==,iv:0lsg2yv/Vq+26OzHSZAt5Z5qKFRyOQzK96WL0tz+mnY=,tag:oqP/jNigRx7pxKbLPvUK2Q==,type:str]
+    - name: ENC[AES256_GCM,data:VtFfhLLPO5kSvg==,iv:LGgATBSHHsjciOWKwPsWV1bZ10dFDKobvbJmdjmELHk=,tag:nJ37DSP9htXabJmBw+ujzA==,type:str]
+      path: /02_entites/aecf_nancy
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Nancy
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:yi037Sk=,iv:NHjNV5nqAayJuezU8Yx4AKufi2M3Cr7UFKnJCYFG0YU=,tag:H2oFzEEQ52ou9Mq+j81B7g==,type:str]
+    - name: ENC[AES256_GCM,data:qda3LS6FzEEOCTOzQg==,iv:JP/z00nyAowB7ZeJ3f9emREzKGKp/VLnQ4GbzD+U1HA=,tag:lX+Ffl4ZlyMldvRLYNIldA==,type:str]
+      path: /02_entites/aecf_bordeaux
+      parent_path: /02_Entites
+      description: Antenne locale et bénévoles de la ville de Bordeaux
+      block_inheritance: false
+      email_prefix: ENC[AES256_GCM,data:zSYTGX+Fto8=,iv:uTYR73qbhNyPVHEVSu+DgU8PiisnH8rm9EogYam7kHE=,tag:Du9B0fJ5gpe+QSFTmgtq7A==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAxdHorL3hnd0Z2UExqWXpZ
+            Nmc1K0RVZ1BGdFVsV3VOQW1mam5WaHhndWh3CjFFQ3duUTVOSUtUQ0pmQkFLNnl3
+            TjVqQmNTZklpeWFXZnlZVGppUTNtRVUKLS0tIDNEQU9raGhsLzBTRHlhM1NXejlX
+            cllpM2ZWU3dnL082TmRtamN3cmJRTGcKWcfuD6/Q7XPnBT01HhVjVhVNt8nDGsc3
+            0ChgNic5sgMw5avSnGz0KvJ/h5JDyNxLynVb5gjssJeGrk53CTPDhQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age126x52f8ph4afdssh4vctq7pz87ashm7luk0raxfzy9e3tfvljqgqhh5z5k
+    encrypted_regex: ^(email|email_prefix|name|initial_password|recovery_email|recovery_phone|first_name|last_name)$
+    lastmodified: "2026-09-18T13:03:49Z"
+    mac: ENC[AES256_GCM,data:u56zcd9U6h24w3Mk+AQ3Ve1zek2gmW8jA79C2CKLcJEhLUlI3mUe5Ewp5J2Copx9NInWhtttEgQDOGni89ubVonJ9F/rbG7rS6wgcDI9s93w5iI0yQbFLyIngzNpgXg9tFLBlNQvxS+CYHiWiMYK0mMQWDbFilyFA6isT0zQgx0=,iv:7Q6v2hOYLRdN/l1TiqALmAgZeJ8KlhXWN16i9kL3KPY=,tag:K8MBVW2LbAqRIzJ4buCqiw==,type:str]
+    version: 3.13.3
